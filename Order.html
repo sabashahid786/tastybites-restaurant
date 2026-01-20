@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TastyBites | Order</title>
+    <link rel="stylesheet" href="tastybite.css">
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+      /* Main cart table styling (page-level overrides kept small) */
+      .order-container { max-width:1100px; margin:30px auto; padding:20px; }
+      .order-card { background:#fff; border-radius:12px; padding:18px; box-shadow:0 6px 20px rgba(0,0,0,0.05); }
+      table.order-table { width:100%; border-collapse:collapse; }
+      table.order-table th, table.order-table td { padding:12px 8px; text-align:left; border-bottom:1px solid #eee }
+      .qty-input { width:60px; padding:6px; border-radius:6px; border:1px solid #ddd; }
+      .place-order { background:linear-gradient(90deg,#06b6d4,#7c3aed); color:#fff; border:none; padding:12px 18px; border-radius:8px; font-weight:700; cursor:pointer }
+      .muted { color:#666; font-size:14px }
+    </style>
+  </head>
+  <body class="order-page">
+    <!-- Header / Navbar -->
+    <header>
+      <nav class="navbar">
+        <div class="logo">TastyBites</div>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-home">Home</a></li>
+          <li><a href="about.html" class="nav-about">About</a></li>
+          <li><a href="menu.html" class="nav-menu">Menu</a></li>
+          <li><a href="Order.html" class="nav-order">Order</a></li>
+          <li><a href="Contact.html" class="nav-contact">Contact Us</a></li>
+        </ul>
+        <div class="nav-auth">
+          <div id="authLinks">
+            <a href="login.html" class="login-btn">LOG IN</a>
+            <a href="signup.html" class="signup-btn">SIGN UP</a>
+          </div>
+          <div id="myAccount" style="display:none;"><a href="account.html" class="account-btn">My Account</a></div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="order-container">
+      <div class="order-card">
+        <h2>Your Order</h2>
+        <p class="muted">Items added from the Menu page appear here. Update quantities, remove items, or proceed to place your order.</p>
+
+        <div id="mainCart">
+          <div class="empty-cart" id="mainEmpty">Your cart is empty. Go to the <a href="menu.html">Menu</a> to add items.</div>
+          <div id="mainCartContent" style="display:none;">
+            <table class="order-table">
+              <thead>
+                <tr><th>Item</th><th>Price</th><th>Quantity</th><th>Line Total</th><th></th></tr>
+              </thead>
+              <tbody id="mainCartItems"></tbody>
+            </table>
+            <div style="display:flex; justify-content:flex-end; gap:18px; margin-top:16px; align-items:center">
+              <div style="text-align:right">
+                <div class="muted">Subtotal: <strong id="mainSubtotal">0RS</strong></div>
+                <div class="muted">Tax (10%): <strong id="mainTax">0RS</strong></div>
+                <div class="muted">Delivery: <strong id="mainDelivery">0RS</strong></div>
+                <div style="margin-top:6px; font-size:18px;">Total: <strong id="mainTotal">0RS</strong></div>
+              </div>
+              <div><button id="placeOrderBtn" class="place-order">Place Order</button></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Floating open-cart button -->
+    <button id="openCartBtn" class="cart-toggle" aria-label="Open cart">
+      <span class="cart-icon">🛒</span>
+      <span class="cart-label">Cart</span>
+      <span id="cart-count" class="cart-badge pulse">0</span>
+    </button>
+
+    <!-- Cart sidebar (enhanced) -->
+    <aside id="cartSidebar" class="cart-sidebar" aria-hidden="true">
+      <div class="cart-header"><strong>Your Cart</strong>
+        <div><button id="closeCartBtn" class="cart-toggle">Close</button></div>
+      </div>
+      <div class="cart-body" id="cartBody">
+        <div class="empty-cart" id="emptyCartMsg">Your cart is empty.</div>
+        <div id="cartItems"></div>
+      </div>
+      <div class="cart-footer">
+        <div style="margin-bottom:10px">
+          <div style="display:flex; justify-content:space-between; font-size:14px; margin-bottom:6px;"><div>Subtotal</div><div id="cartSubtotal">0RS</div></div>
+          <div style="display:flex; justify-content:space-between; font-size:14px; margin-bottom:6px;"><div>Tax (10%)</div><div id="cartTax">0RS</div></div>
+          <div style="display:flex; justify-content:space-between; font-size:14px; margin-bottom:6px;"><div>Delivery</div><div id="cartDelivery">0RS</div></div>
+          <div style="display:flex; justify-content:space-between; font-weight:700; font-size:16px;"><div>Total</div><div id="cartTotal">0RS</div></div>
+        </div>
+
+        <div style="display:flex; gap:8px; margin-top:6px;">
+          <button id="clearCartBtn" type="button" class="cart-toggle" style="flex:1">Clear Cart</button>
+          <button id="showCheckoutBtn" type="button" class="cart-toggle" style="flex:1">Proceed to Checkout</button>
+        </div>
+
+        <div id="checkoutWrapper" style="display:none; margin-top:10px;">
+          <form id="checkoutForm" style="display:flex; flex-direction:column; gap:8px;">
+            <input id="custName" type="text" placeholder="Your name" style="padding:8px; border-radius:6px; border:1px solid #ddd;" required>
+            <input id="custPhone" type="tel" placeholder="Phone number" style="padding:8px; border-radius:6px; border:1px solid #ddd;" required>
+            <input id="custAddress" type="text" placeholder="Delivery address" style="padding:8px; border-radius:6px; border:1px solid #ddd;" required>
+            <div style="display:flex; gap:8px; margin-top:6px;"><button id="checkoutBtn" type="submit" class="cart-toggle" style="flex:1">Place Order</button></div>
+          </form>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Footer -->
+    <footer class="footer" style="margin-top:40px;">
+      <div class="footer-container">
+        <div class="footer-box">
+          <h2>Contact Us</h2>
+          <p class="clickable"><i class="fas fa-location-dot"></i> Location</p>
+          <p class="clickable"><i class="fas fa-phone"></i> Call +01 123456789</p>
+          <p class="clickable"><i class="fas fa-envelope"></i> Tastybites@gmail.com</p>
+        </div>
+        <div class="footer-box center"><h2>Tastybites</h2><p>Our mission is to bring people together through food and provide an enjoyable experience filled with great taste and comfort.</p>
+          <div class="social-icons"><a href="#"><i class="fab fa-whatsapp"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-twitter"></i></a></div>
+        </div>
+        <div class="footer-box"><h2>Opening Hours</h2><p>Everyday</p><p>09.00 AM – 12.00 PM</p></div>
+      </div>
+      <div class="footer-bottom">© 2025 All Rights Reserved By Saba Shahid (2483-2024)</div>
+    </footer>
+
+    <script src="auth.js"></script>
+    <script src="script.js"></script>
+    <script src="footer.js"></script>
+  </body>
+  </html>

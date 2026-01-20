@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>TastyBites | Login</title>
+  <link rel="stylesheet" href="tastybite.css">
+  <link rel="stylesheet" href="menu.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* Page-specific layout for login */
+    .auth-container { max-width: 900px; margin: 40px auto; display: flex; gap: 32px; align-items: flex-start; padding: 0 20px; justify-content:center }
+    .login-card { width:420px; background:#fff; padding:28px; border-radius:12px; box-shadow:0 12px 30px rgba(0,0,0,0.06); }
+    .login-card h2 { margin-bottom:12px; color:#062327; font-weight:800 }
+    .login-card label { display:block; font-size:14px; margin:8px 0 6px; color:#333 }
+    .login-card input { width:100%; padding:10px 12px; border-radius:8px; border:1px solid #ddd; margin-bottom:8px }
+    .login-card button { background:#000; color:#fff; border:none; padding:10px 14px; border-radius:8px; font-weight:800; cursor:pointer }
+    /* Make the "Don't have an account?" text bold and black */
+    .login-card .note { margin-top:12px; font-size:14px; color:#000; font-weight:800 }
+
+    @media (max-width: 680px){
+      .auth-container{ padding:12px }
+      .login-card{ width:100% }
+    }
+  </style>
+</head>
+<body class="login-page">
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">TastyBites</div>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-home">Home</a></li>
+        <li><a href="about.html" class="nav-about">About</a></li>
+        <li><a href="menu.html" class="nav-menu">Menu</a></li>
+        <li><a href="Order.html" class="nav-order">Order</a></li>
+        <li><a href="Contact.html" class="nav-contact">Contact Us</a></li>
+      </ul>
+      <div class="nav-auth">
+        <div id="authLinks">
+          <a href="login.html" class="login-btn">LOG IN</a>
+          <a href="signup.html" class="signup-btn">SIGN UP</a>
+        </div>
+        <div id="myAccount" style="display:none;"><a href="account.html" class="account-btn">My Account</a></div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="auth-container">
+    <!-- Login form (centered) -->
+    <div class="login-card">
+      <h2>Sign in to TastyBites</h2>
+      <label for="username">Username or Email</label>
+      <input id="username" type="text" placeholder="Enter username or email" autocomplete="username">
+
+      <label for="password">Password</label>
+      <input id="password" type="password" placeholder="Enter password" autocomplete="current-password">
+
+      <button id="loginBtn">LOGIN</button>
+
+      <p class="note">Don't have an account? <a href="signup.html">SIGN UP</a></p>
+    </div>
+  </main>
+
+  <footer class="footer" style="margin-top:40px;">
+    <div class="footer-container">
+      <div class="footer-box">
+        <h2>Contact Us</h2>
+        <p class="clickable"><i class="fas fa-location-dot"></i> Location</p>
+        <p class="clickable"><i class="fas fa-phone"></i> Call +01 123456789</p>
+        <p class="clickable"><i class="fas fa-envelope"></i> Tastybites@gmail.com</p>
+      </div>
+      <div class="footer-box center"><h2>Tastybites</h2><p>Our mission is to bring people together through food and provide an enjoyable experience filled with great taste and comfort.</p>
+        <div class="social-icons"><a href="#"><i class="fab fa-whatsapp"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-twitter"></i></a></div>
+      </div>
+      <div class="footer-box"><h2>Opening Hours</h2><p>Everyday</p><p>09.00 AM – 12.00 PM</p></div>
+    </div>
+    <div class="footer-bottom">© 2025 All Rights Reserved By Saba Shahid (2483-2024)</div>
+  </footer>
+
+  <script src="auth.js"></script>
+  <script src="script.js"></script>
+  <script>
+    // Simple login handling: accepts any non-empty credentials for demo
+    document.getElementById('loginBtn').addEventListener('click', function(){
+      const u = document.getElementById('username').value.trim();
+      const p = document.getElementById('password').value.trim();
+      if(!u || !p){
+        alert('Please enter username and password');
+        return;
+      }
+      // For demo, treat login as successful
+      localStorage.setItem('loggedIn','true');
+      // Optionally store username
+      localStorage.setItem('username', u);
+      // update navbar state
+      try{ if(window.showAccount) showAccount(); }catch(e){}
+      // redirect to home
+      window.location.href = 'index.html';
+    });
+  </script>
+</body>
+</html>

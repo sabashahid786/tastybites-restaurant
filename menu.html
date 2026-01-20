@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TastyBites | Menu</title>
+        <link rel="stylesheet" href="tastybite.css">
+        <link rel="stylesheet" href="menu.css">
+        <link rel="stylesheet" href="footer.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    </head>
+    <body class="menu-page">
+
+        <!-- ===== HEADER ===== -->
+        <header>
+            <nav class="navbar">
+                <div class="logo">TastyBites</div>
+
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-home">Home</a></li>
+                    <li><a href="about.html" class="nav-about">About</a></li>
+                    <li><a href="menu.html" class="nav-menu">Menu</a></li>
+                    <li><a href="Order.html" class="nav-order">Order</a></li>
+                    <li><a href="Contact.html" class="nav-contact">Contact Us</a></li>
+                </ul>
+
+                <div class="nav-auth">
+                    <div id="authLinks">
+                        <a href="login.html" class="login-btn">LOG IN</a>
+                        <a href="signup.html" class="signup-btn">SIGN UP</a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <!-- ===== MENU SECTION ===== -->
+        <section class="menu-section">
+            <h2 class="menu-title">Our Menu</h2>
+
+            <div class="menu-filters">
+                <button class="filter-btn active" data-category="all">All</button>
+                <button class="filter-btn" data-category="burger">Burger</button>
+                <button class="filter-btn" data-category="pizza">Pizza</button>
+                <button class="filter-btn" data-category="pasta">Pasta</button>
+                <button class="filter-btn" data-category="fries">Fries</button>
+            </div>
+
+            <div class="menu-grid">
+
+                <div class="menu-card" data-name="Delicious Pizza" data-price="1000">
+                    <div class="menu-img pizza-img"></div>
+                    <div class="menu-content">
+                        <h3>Delicious Pizza</h3>
+                        <p>Fresh ingredients with amazing taste.</p>
+                        <div class="menu-bottom">
+                            <span class="price">1000RS</span>
+                            <button class="cart-btn" data-id="pizza">🛒 Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-name="Double Decker Burger" data-price="450">
+                    <div class="menu-img burger-img"></div>
+                    <div class="menu-content">
+                        <h3>Double Decker Burger</h3>
+                        <p>Eggs Benedict Burger.</p>
+                        <div class="menu-bottom">
+                            <span class="price">450RS</span>
+                            <button class="cart-btn" data-id="burger">🛒 Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-name="White Sauce Pasta" data-price="600">
+                    <div class="menu-img pasta-img"></div>
+                    <div class="menu-content">
+                        <h3>White Sauce Pasta</h3>
+                        <p>A creamy and rich dish.</p>
+                        <div class="menu-bottom">
+                            <span class="price">600RS</span>
+                            <button class="cart-btn" data-id="white-pasta">🛒 Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-name="Loaded fries" data-price="500">
+                    <div class="menu-img Fries-img"></div>
+                    <div class="menu-content">
+                        <h3>Loaded fries</h3>
+                        <p>French fries topped with cheese, sauces, meat, and vegetables.</p>
+                        <div class="menu-bottom">
+                            <span class="price">500RS</span>
+                            <button class="cart-btn" data-id="loaded-fries">🛒 Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-name="Broast" data-price="1800">
+                    <div class="menu-img broast-img"></div>
+                    <div class="menu-content">
+                        <h3>Broast</h3>
+                        <p>A trademarked style of fried chicken cooked in a pressure fryer.</p>
+                        <div class="menu-bottom">
+                            <span class="price">1800RS</span>
+                            <button class="cart-btn" data-id="broast">🛒 Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-name="Plain Pasta" data-price="700">
+                    <div class="menu-img Planpasta-img"></div>
+                    <div class="menu-content">
+                        <h3>Plain Pasta</h3>
+                        <p>Served simply with oil, butter, herbs or cheese.</p>
+                        <div class="menu-bottom">
+                            <span class="price">700RS</span>
+                            <button class="cart-btn" data-id="plain-pasta">🛒 Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-name="Loaded fries" data-price="500">
+                    <div class="menu-img Fries-img"></div>
+                    <div class="menu-content">
+                        <h3>Loaded fries</h3>
+                        <p>French fries topped with cheese, sauces, meat, and vegetables.</p>
+                        <div class="menu-bottom">
+                            <span class="price">500RS</span>
+                            <button class="cart-btn" data-id="loaded-fries-2">🛒 Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-name="Burrito" data-price="1000">
+                    <div class="menu-img Burrito-img"></div>
+                    <div class="menu-content">
+                        <h3>Burrito</h3>
+                        <p>A flour tortilla wrapped around various savory fillings.</p>
+                        <div class="menu-bottom">
+                            <span class="price">1000RS</span>
+                            <button class="cart-btn" data-id="burrito">🛒 Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-name="BBQ" data-price="1500">
+                    <div class="menu-img bbq-img"></div>
+                    <div class="menu-content">
+                        <h3>BBQ</h3>
+                        <p>Crafted with a perfect blend of traditional techniques and innovative twists.</p>
+                        <div class="menu-bottom">
+                            <span class="price">1500RS</span>
+                            <button class="cart-btn" data-id="bbq">🛒 Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===== FOOTER ===== -->
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-box">
+                    <h2>Contact Us</h2>
+                    <p class="clickable" onclick="openLocation()"><i class="fas fa-location-dot"></i> Location</p>
+                    <p class="clickable" onclick="callNow()"><i class="fas fa-phone"></i> Call +01 123456789</p>
+                    <p class="clickable" onclick="sendEmail()"><i class="fas fa-envelope"></i> Tastybites@gmail.com</p>
+                </div>
+                <div class="footer-box center">
+                    <h2>Tastybites</h2>
+                    <p>Our mission is to bring people together through food and provide an enjoyable experience filled with great taste and comfort.</p>
+                    <div class="social-icons">
+                        <a href="#" onclick="openSocial('whatsapp')"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" onclick="openSocial('instagram')"><i class="fab fa-instagram"></i></a>
+                        <a href="#" onclick="openSocial('twitter')"><i class="fab fa-twitter"></i></a>
+                        <a href="#" onclick="openSocial('facebook')"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" onclick="openSocial('linkedin')"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-box">
+                    <h2>Opening Hours</h2>
+                    <p>Everyday</p>
+                    <p>09.00 AM – 12.00 PM</p>
+                </div>
+            </div>
+            <div class="footer-bottom">© 2025 All Rights Reserved By Saba Shahid (2483-2024)</div>
+        </footer>
+
+        <script src="auth.js"></script>
+        <script src="script.js"></script>
+        <script src="footer.js"></script>
+    </body>
+</html>

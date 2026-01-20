@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TastyBites | Home</title>
+    <link rel="stylesheet" href="tastybite.css">
+    <link rel="stylesheet" href="menu.css">
+    <body class="contact-page">
+
+    
+    
+    
+    
+
+</head>
+<body>
+
+    <!-- ===== Header / Navbar ===== -->
+    <header>
+       <nav class="navbar">
+    <div class="logo">TastyBites</div>
+
+    <ul class="nav-links">
+        <li><a href="index.html" class="nav-home">Home</a></li>
+        <li><a href="about.html" class="nav-about">About</a></li>
+        <li><a href="menu.html" class="nav-menu">Menu</a></li>
+        <li><a href="order.html" class="nav-order">Order</a></li>
+        <li><a href="contact.html" class="nav-contact">Contact Us</a></li>
+    </ul>
+    <div class="nav-auth">
+    <div id="authLinks">
+      <a href="login.html" class="login-btn">LOG IN</a>
+      <a href="signup.html" class="signup-btn">SIGN UP</a>
+    </div>
+
+    <div id="myAccount" style="display:none;">
+      <a href="account.html" class="account-btn">My Account</a>
+    </div>
+  </div>
+</nav>
+
+    </header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="contact-section">
+
+  <div class="contact-left">
+
+    <h1>Where Every <span>BITE</span><br> Tells a Delicious Story</h1>
+
+    <p>
+      At TastyBites, we believe food is more than just a meal — it’s a feeling,
+      a memory, and a moment shared.
+    </p>
+
+    <div class="contact-info">
+
+  <div class="info-item" id="address">
+    <img src="images/icons-03.png" class="info-icon" alt="Address">
+    <span>L-542 North Town Road, Karachi</span>
+  </div>
+
+  <div class="info-item" id="location">
+    <img src="images/icons-05.png" class="info-icon" alt="Location">
+    <span>Live Location of Restaurant</span>
+  </div>
+
+  <div class="info-item">
+    <img src="images/icons-04.png" class="info-icon" alt="Call">
+    <a href="tel:+01123456789">+01 123456789</a>
+  </div>
+
+  <div class="info-item">
+    <img src="images/icons-06.png" class="info-icon" alt="Email">
+    <a href="mailto:tastybites@gmail.com">tastybites@gmail.com</a>
+  </div>
+
+</div>
+
+    </div>
+
+  </div>
+
+  <!-- Right Image -->
+  <div class="contact-right">
+    <img src="images/main home rightimage.png" alt="Burger Illustration">
+  </div>
+
+</section>
+
+<section class="form-section" id="book-table">
+
+  <h2 class="form-title">Book A Table</h2>
+
+  <form id="bookForm" action="Backend/contact/book_table.php" method="POST" class="main-form">
+
+    <input type="text" name="name" placeholder="Your Name" required>
+
+    <input type="tel" name="phone" placeholder="Phone Number" required>
+
+    <input type="email" name="email" placeholder="Your Email" required>
+
+    <select name="persons" required>
+      <option value="">How many persons?</option>
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4+</option>
+    </select>
+
+    <input type="date" name="date" required>
+
+    <button type="submit" class="btn-yellow">BOOK NOW</button>
+
+  </form>
+
+</section>
+<section class="form-section" id="send-message">
+
+  <h2 class="form-title">Send Message</h2>
+
+  <form id="messageForm" action="Backend/contact/send_message.php" method="POST" class="main-form">
+
+    <input type="text" name="name" placeholder="Your Name" required>
+
+    <input type="email" name="email" placeholder="Your Email" required>
+
+    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+
+    <button type="submit" class="btn-yellow">SEND MESSAGE</button>
+
+  </form>
+
+</section>
+
+
+
+
+
+
+  <script src="js/auth.js"></script>
+  <script src="js/contact.js"></script>
+</body>
+</html>
